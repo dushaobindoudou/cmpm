@@ -41,7 +41,7 @@
     "@types/node": "^20.10.0",
     "@vitejs/plugin-vue": "^5.0.4",
     "autoprefixer": "^10.4.16",
-    "electron": "^29.1.1",
+    "electron": "^35.1.1",
     "electron-builder": "^24.13.3",
     "postcss": "^8.4.31",
     "sass": "^1.69.5",
