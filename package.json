@@ -1,17 +1,17 @@
 {
-  "name": "electron-vue-vite",
-  "version": "28.1.0",
+  "name": "cmpm",
+  "version": "1.0.0",
   "main": "dist-electron/main/index.js",
-  "description": "Really simple Electron + Vue + Vite boilerplate.",
-  "author": "草鞋没号 <308487730@qq.com>",
+  "description": "MCP Management Platform - An app store like manager for MCP clients",
+  "author": "CMPM Team",
   "license": "MIT",
   "private": true,
   "keywords": [
     "electron",
-    "rollup",
     "vite",
     "vue3",
-    "vue"
+    "tailwind",
+    "mcp"
   ],
   "debug": {
     "env": {
@@ -24,15 +24,32 @@
     "build": "vue-tsc --noEmit && vite build && electron-builder",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.23",
+    "@heroicons/vue": "^2.2.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "axios": "^1.6.2",
+    "electron-store": "^8.1.0",
+    "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^3.2.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.2.5"
+  },
   "devDependencies": {
+    "@types/node": "^20.10.0",
     "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.16",
     "electron": "^29.1.1",
     "electron-builder": "^24.13.3",
+    "postcss": "^8.4.31",
+    "sass": "^1.69.5",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.4.2",
     "vite": "^5.1.5",
     "vite-plugin-electron": "^0.28.4",
     "vite-plugin-electron-renderer": "^0.14.5",
-    "vue": "^3.4.21",
     "vue-tsc": "^2.0.6"
   }
 }

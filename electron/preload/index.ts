@@ -18,9 +18,31 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
     const [channel, ...omit] = args
     return ipcRenderer.invoke(channel, ...omit)
   },
+})
 
-  // You can expose other APTs you need here.
-  // ...
+// Expose CMPM specific APIs to the renderer process
+contextBridge.exposeInMainWorld('cmpm', {
+  // System information
+  getAppPath: () => ipcRenderer.invoke('get-app-path'),
+  getPlatform: () => ipcRenderer.invoke('get-platform'),
+  getSystemTheme: () => ipcRenderer.invoke('get-system-theme'),
+  
+  // System integration
+  setAutoLaunch: (enable: boolean) => ipcRenderer.invoke('set-auto-launch', enable),
+  
+  // Notifications
+  showNotification: (options: { title: string, body: string }) => 
+    ipcRenderer.invoke('show-notification', options),
+  
+  // MCP Management
+  mcpManager: {
+    install: (options) => ipcRenderer.invoke('mcp:install', options),
+    uninstall: (options) => ipcRenderer.invoke('mcp:uninstall', options),
+    getInstallInfo: (id) => ipcRenderer.invoke('mcp:getInstallInfo', id),
+    openInstalled: (path) => ipcRenderer.invoke('mcp:openInstalled', path),
+    selectInstallLocation: () => ipcRenderer.invoke('mcp:selectInstallLocation'),
+    downloadFile: (url, destination) => ipcRenderer.invoke('mcp:downloadFile', { url, destination })
+  },
 })
 
 // --------- Preload scripts loading ---------
